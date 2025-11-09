@@ -706,7 +706,7 @@ def generate_explanation(features, prediction_status, prob_phishing, prob_safe):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('./templates/index.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
