@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="email-form">
+            <h3 class="mb-4">Masukkan Konten Email</h3>
+            <form id="emailForm">
+                <div class="mb-3">
+                    <label for="emailContent" class="form-label">Konten Email</label>
+                    <textarea class="form-control" id="emailContent" rows="10" placeholder="Paste konten email di sini..." required></textarea>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-analyze">
+                        <i class="bi bi-search me-2"></i>Analisis Email
+                    </button>
+                </div>
+            </form>
+            <div class="loader" id="loader"></div>
+        </div>
+
+        <div class="card result-card" id="resultCard">
+            <div class="card-header">
+                <h4 class="mb-0">Hasil Analisis</h4>
+            </div>
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <h5 id="resultTitle" class="mb-3"></h5>
+                        <div class="d-flex align-items-center mb-2">
+                            <!-- PERUBAHAN: Tambahkan id untuk mengubah label secara dinamis -->
+                            <span class="me-2" id="confidenceLabel">Tingkat Kepercayaan:</span>
+                            <strong id="confidenceText"></strong>
+                        </div>
+                        <div class="confidence-bar">
+                            <div class="confidence-fill" id="confidenceBar"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title">Informasi Email</h6>
+                                <p class="card-text mb-1"><strong>Pengirim:</strong> <span id="senderInfo"></span></p>
+                                <p class="card-text mb-0"><strong>Tanggal:</strong> <span id="dateInfo"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Penjelasan</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled" id="explanationList">
+                            <!-- Explanation items will be added here -->
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-4 text-center">
+                    <button type="button" class="btn btn-outline-secondary" id="analyzeAnotherBtn">
+                        <i class="bi bi-arrow-clockwise me-2"></i>Analisis Email Lain
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
